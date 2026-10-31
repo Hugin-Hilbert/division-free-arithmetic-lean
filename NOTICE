@@ -1,0 +1,11 @@
+Division-free arithmetic in Lean
+
+Circuit.lean and Recurrence.lean are adapted from the local matmul project,
+whose project additions are distributed under Apache-2.0. Source paths and
+SHA-256 hashes are recorded in docs/PROVENANCE.json. The source project's
+NOTICE is retained in docs/MATMUL-NOTICE.txt. No tensor, fixed-point, or
+spectral modules from that project are included here.
+
+Modifications: standalone imports, DivisionFree namespaces, compatibility
+with Lean 4.32.0, and extensions described in each module and the provenance
+record. New project code and tooling are distributed under Apache-2.0.

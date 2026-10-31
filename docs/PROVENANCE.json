@@ -1,0 +1,63 @@
+{
+  "license": "Apache-2.0",
+  "source_adaptations": [
+    {
+      "project": "matmul",
+      "source": "formalization/Matmul/UniversalProgram.lean",
+      "source_sha256": "8aaed341ee5de4c6e267edfdb6047d6f631ee23ae7c7c7eed4fb49184aca45a7",
+      "destination": "DivisionFree/Circuit.lean",
+      "license": "Apache-2.0",
+      "changes": "Standalone imports, DivisionFree namespace, Lean 4.32 compatibility; Circuit additionally has integer constants and ring semantics.",
+      "notice": "MATMUL-NOTICE.txt"
+    },
+    {
+      "project": "matmul",
+      "source": "formalization/Matmul/RecursiveCost.lean",
+      "source_sha256": "05c5ce69a8b8c0b96c3132e6c23fdcf04ebcfded0a0abdb8aa12521ed7f3c7dc",
+      "destination": "DivisionFree/Recurrence.lean",
+      "license": "Apache-2.0",
+      "changes": "Standalone imports, DivisionFree namespace, Lean 4.32 compatibility; Circuit additionally has integer constants and ring semantics.",
+      "notice": "MATMUL-NOTICE.txt"
+    }
+  ],
+  "related_project_adaptations": [
+    {
+      "project": "almost-linear-modular-composition-lean",
+      "source": "AlmostLinear/LinearLifting.lean",
+      "source_sha256": "7ed74d707b12a2a59955a179745d59e2ab1fbb97cd6e32640482274dbb5c1868",
+      "destination": "DivisionFree/Lifting.lean",
+      "changes": "General-purpose namespace and documentation; proofs unchanged."
+    },
+    {
+      "project": "almost-linear-modular-composition-lean",
+      "source": "AlmostLinear/DigitEncoding.lean",
+      "source_sha256": "8d673f46e3cb69e1e80c9884967b921f254e17115de80255481c16f740801bcc",
+      "destination": "DivisionFree/Kronecker/MixedRadix.lean",
+      "changes": "Adapted mixed-radix capacity, digit extraction/encoding, validity, and inverse/injectivity lemmas into a consumer-independent namespace for full-range product boxes."
+    },
+    {
+      "project": "almost-linear-modular-composition-lean",
+      "source": "AlmostLinear/MomentConvolution.lean",
+      "source_sha256": "5c5159ca1a0e7a621ff26bebd9ea3603c22f9490c8814863a02900d60d68bfde",
+      "destination": "DivisionFree/Kronecker/FullProduct.lean",
+      "changes": "Borrowed the encoded-polynomial coefficient convolution identity and no-alias proof structure. The full-range scatter circuit, per-coordinate 2s-1 box, single full-multiplier wrapper, and its cost proof are a new implementation; consumer moment/merge algorithms are not migrated."
+    }
+  ],
+  "mathematical_sources": [
+    {
+      "title": "On fast multiplication of polynomials over arbitrary algebras",
+      "authors": [
+        "David G. Cantor",
+        "Erich Kaltofen"
+      ],
+      "year": 1991,
+      "doi": "10.1007/BF01178683",
+      "use": "Division-free scaled transforms, cyclotomic extensions, radix decomposition, and coprime recombination for full polynomial multiplication."
+    }
+  ],
+  "notes": [
+    "Source-file hashes identify the exact versions used for adaptations.",
+    "The original matmul notice is retained in MATMUL-NOTICE.txt; tensor, fixed-point, and spectral modules from that project are not included.",
+    "The remaining arithmetic, bilinear, fixed-factor, transposition, and coefficient-lifting proofs are implemented in this library."
+  ]
+}
